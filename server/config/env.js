@@ -1,13 +1,13 @@
 require('dotenv').config();
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
-const PORT = parseInt(process.env.PORT, 10) || 5000;
+const PORT = parseInt(process.env.PORT, 10) || 5050;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/rental_portal';
 const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim())
-  : [`http://localhost:${PORT}`];
+  : [`http://localhost:${PORT}`, 'http://localhost:5000', 'http://localhost:5050'];
 const TRUST_PROXY = process.env.TRUST_PROXY === 'true' || process.env.TRUST_PROXY === '1';
 const MODERATION_REQUIRED = process.env.MODERATION_REQUIRED === 'true';
 

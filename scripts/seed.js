@@ -7,7 +7,7 @@ const Favorite = require('../server/models/Favorite');
 const { ROLES } = require('../server/constants/roles');
 const { NODE_ENV, validateEnv } = require('../server/config/env');
 
-async function seedDatabase() {
+async function seedDatabase(keepAlive = false) {
   if (NODE_ENV === 'production') {
     console.error('CRITICAL: Seed script refused to run in production mode (NODE_ENV=production).');
     process.exit(1);
@@ -224,17 +224,22 @@ async function seedDatabase() {
     console.log(' - Owner:  owner@example.com / Password123!');
     console.log(' - Seeker: seeker@example.com / Password123!\n');
 
-    await disconnectDB();
-    process.exit(0);
+    if (!keepAlive) {
+      await disconnectDB();
+      process.exit(0);
+    }
   } catch (error) {
     console.error('Seeding failed:', error);
-    await disconnectDB();
-    process.exit(1);
+    if (!keepAlive) {
+      await disconnectDB();
+      process.exit(1);
+    }
+    throw error;
   }
 }
 
 if (require.main === module) {
-  seedDatabase();
+  seedDatabase(false);
 }
 
 module.exports = seedDatabase;
