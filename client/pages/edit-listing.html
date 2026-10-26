@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Listing - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .image-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .preview-card {
+      position: relative;
+      height: 100px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+    .preview-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .preview-card .delete-img-btn {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: var(--color-danger);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Edit Listing</h1>
+      <p>Modify listing content, update pricing, or manage uploaded photos.</p>
+    </div>
+
+    <div class="form-card" style="max-width: 850px; margin: 0 auto;">
+      <div id="alert-box" role="alert" style="display: none; margin-bottom: 1.5rem;" class="form-error"></div>
+
+      <form id="edit-property-form" novalidate>
+        <!-- Title -->
+        <div class="form-group">
+          <label for="title">Listing Title *</label>
+          <input type="text" id="title" class="form-control" required minlength="5" maxlength="120">
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="propertyType">Property Type *</label>
+            <select id="propertyType" class="form-control" required>
+              <option value="apartment">Apartment</option>
+              <option value="house">House</option>
+              <option value="villa">Villa</option>
+              <option value="studio">Studio</option>
+              <option value="pg">PG / Co-Living</option>
+              <option value="commercial">Commercial</option>
+              <option value="plot">Plot</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="purpose">Listing Purpose *</label>
+            <select id="purpose" class="form-control" required>
+              <option value="rent">Rent (Monthly Rent)</option>
+              <option value="sale">Sale (Outright Purchase)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="furnishing">Furnishing Status</label>
+            <select id="furnishing" class="form-control">
+              <option value="unfurnished">Unfurnished</option>
+              <option value="semi_furnished">Semi-Furnished</option>
+              <option value="fully_furnished">Fully Furnished</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Pricing & Area -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="price">Price ($) *</label>
+            <input type="number" id="price" class="form-control" required min="0">
+          </div>
+
+          <div class="form-group" id="deposit-group">
+            <label for="deposit">Security Deposit ($)</label>
+            <input type="number" id="deposit" class="form-control" min="0">
+          </div>
+
+          <div class="form-group">
+            <label for="area">Carpet Area *</label>
+            <input type="number" id="area" class="form-control" required min="1">
+          </div>
+
+          <div class="form-group">
+            <label for="areaUnit">Area Unit</label>
+            <select id="areaUnit" class="form-control">
+              <option value="sqft">Square Feet (sqft)</option>
+              <option value="sqm">Square Meters (sqm)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="bedrooms">Bedrooms</label>
+            <input type="number" id="bedrooms" class="form-control" min="0">
+          </div>
+
+          <div class="form-group">
+            <label for="bathrooms">Bathrooms</label>
+            <input type="number" id="bathrooms" class="form-control" min="0">
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+          <label for="address">Street Address *</label>
+          <input type="text" id="address" class="form-control" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="locality">Locality / Neighborhood *</label>
+            <input type="text" id="locality" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="state">State / Province *</label>
+            <input type="text" id="state" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="postalCode">Postal Code *</label>
+            <input type="text" id="postalCode" class="form-control" required>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" class="form-control" rows="5" required minlength="20" maxlength="3000"></textarea>
+        </div>
+
+        <!-- Existing Images -->
+        <div class="form-group">
+          <label>Current Images</label>
+          <div id="image-gallery-preview" class="image-preview-grid">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Upload Additional Images -->
+        <div class="form-group">
+          <label for="new-images">Add More Images (max 10 total)</label>
+          <input type="file" id="new-images" class="form-control" multiple accept="image/jpeg,image/png,image/webp">
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+          <a href="/pages/my-listings.html" class="btn btn-secondary">Cancel</a>
+          <button type="submit" id="save-btn" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/edit-listing.js"></script>
+</body>
+</html>

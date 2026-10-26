@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Properties - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .search-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .search-layout {
+        grid-template-columns: 280px 1fr;
+      }
+    }
+    .filter-panel {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      height: fit-content;
+    }
+    .pagination-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Explore Property Listings</h1>
+      <p>Search verified rental and sale residences with custom filters.</p>
+    </div>
+
+    <div class="search-layout">
+      <!-- Filter Sidebar -->
+      <aside class="filter-panel" aria-label="Search Filters">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.15rem; color: var(--color-primary);">Filter Listings</h2>
+          <button type="button" id="clear-filters-btn" class="btn btn-secondary btn-sm">Reset</button>
+        </div>
+
+        <form id="filter-form">
+          <div class="form-group">
+            <label for="filter-q">Search Keyword</label>
+            <input type="text" id="filter-q" class="form-control" placeholder="Title, locality, or features">
+          </div>
+
+          <div class="form-group">
+            <label for="filter-city">City</label>
+            <input type="text" id="filter-city" class="form-control" placeholder="e.g. Seattle">
+          </div>
+
+          <div class="form-group">
+            <label for="filter-purpose">Purpose</label>
+            <select id="filter-purpose" class="form-control">
+              <option value="">Any Purpose</option>
+              <option value="rent">For Rent</option>
+              <option value="sale">For Sale</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="filter-type">Property Type</label>
+            <select id="filter-type" class="form-control">
+              <option value="">All Property Types</option>
+              <option value="apartment">Apartment</option>
+              <option value="house">House</option>
+              <option value="villa">Villa</option>
+              <option value="studio">Studio</option>
+              <option value="pg">PG / Co-Living</option>
+              <option value="commercial">Commercial</option>
+              <option value="plot">Plot</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="filter-furnishing">Furnishing</label>
+            <select id="filter-furnishing" class="form-control">
+              <option value="">Any Furnishing</option>
+              <option value="fully_furnished">Fully Furnished</option>
+              <option value="semi_furnished">Semi-Furnished</option>
+              <option value="unfurnished">Unfurnished</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Price Range ($)</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="number" id="filter-min-price" class="form-control" placeholder="Min" min="0">
+              <input type="number" id="filter-max-price" class="form-control" placeholder="Max" min="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="filter-bedrooms">Bedrooms</label>
+            <select id="filter-bedrooms" class="form-control">
+              <option value="">Any Bedrooms</option>
+              <option value="1">1+ Beds</option>
+              <option value="2">2+ Beds</option>
+              <option value="3">3+ Beds</option>
+              <option value="4">4+ Beds</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="filter-sort">Sort By</label>
+            <select id="filter-sort" class="form-control">
+              <option value="newest">Newest First</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+            </select>
+          </div>
+        </form>
+      </aside>
+
+      <!-- Results Grid -->
+      <section aria-label="Search Results">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <p id="results-count" style="color: var(--color-text-muted); font-weight: 500;">Loading properties...</p>
+        </div>
+
+        <div id="results-grid" class="property-grid" aria-live="polite">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div id="pagination-controls" class="pagination-bar" style="display: none;">
+          <button type="button" id="prev-page-btn" class="btn btn-secondary btn-sm">&larr; Previous</button>
+          <span id="page-indicator" style="font-size: 0.9rem; font-weight: 600;">Page 1</span>
+          <button type="button" id="next-page-btn" class="btn btn-secondary btn-sm">Next &rarr;</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/search.js"></script>
+</body>
+</html>

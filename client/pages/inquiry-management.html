@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Inquiries & Viewings - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Inquiry & Viewing Management</h1>
+      <p>Respond to prospective tenants, confirm viewing appointments, and avoid scheduling collisions.</p>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table" aria-label="Received Inquiries">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Client</th>
+            <th>Type</th>
+            <th>Message</th>
+            <th>Requested Time</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="owner-inquiries-tbody">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/inquiry-management.js"></script>
+</body>
+</html>

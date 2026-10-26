@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Reports & Safety - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Listing Reports & Safety Review</h1>
+      <p>Investigate reported irregularities, view owner responses, and take moderation action.</p>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table" aria-label="Reports Queue">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Reporter</th>
+            <th>Reason</th>
+            <th>Details</th>
+            <th>Owner Response</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="reports-tbody">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/reports.js"></script>
+</body>
+</html>

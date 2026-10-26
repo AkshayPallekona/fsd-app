@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1>User Directory & Security</h1>
+        <p>Monitor registered platform members and enforce security suspensions.</p>
+      </div>
+      <div>
+        <select id="user-role-filter" class="form-control" style="width: auto; display: inline-block;">
+          <option value="">All Roles</option>
+          <option value="seeker">Seekers</option>
+          <option value="owner">Owners</option>
+          <option value="admin">Admins</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table" aria-label="User Directory Table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Joined</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="users-tbody">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/user-management.js"></script>
+</body>
+</html>

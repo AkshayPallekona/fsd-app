@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div>
+        <h1>My Account</h1>
+        <p>Manage your account settings and preferences.</p>
+      </div>
+      <div>
+        <a href="/pages/edit-profile.html" class="btn btn-secondary">Edit Profile & Password</a>
+      </div>
+    </div>
+
+    <div class="form-card" style="margin: 0; max-width: 100%;">
+      <div id="profile-details" style="line-height: 2;">
+        <!-- Loaded dynamically via profile.js -->
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div>
+        <h1>Portal Administration</h1>
+        <p>System metrics, platform moderation queue, and audit trail.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="/pages/moderation.html" class="btn btn-primary btn-sm">Moderation Queue</a>
+        <a href="/pages/user-management.html" class="btn btn-secondary btn-sm">User Directory</a>
+      </div>
+    </div>
+
+    <!-- Stats Summary Cards -->
+    <div id="admin-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+      <!-- Populated dynamically -->
+    </div>
+
+    <!-- Recent Audit Logs Section -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2 style="font-size: 1.3rem; color: var(--color-primary);">Recent Administrative Audit Trail</h2>
+        <span style="font-size: 0.85rem; color: var(--color-text-muted);">Real-time security log</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table" aria-label="Audit Logs">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Administrator</th>
+              <th>Action</th>
+              <th>Target</th>
+              <th>Details</th>
+              <th>IP</th>
+            </tr>
+          </thead>
+          <tbody id="audit-logs-tbody">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/admin-dashboard.js"></script>
+</body>
+</html>

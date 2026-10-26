@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listing Moderation - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1>Listing Moderation Queue</h1>
+        <p>Review submitted properties for quality guidelines, approve, or reject with notes.</p>
+      </div>
+      <div>
+        <select id="moderation-filter" class="form-control" style="width: auto; display: inline-block;">
+          <option value="pending_review">Pending Review</option>
+          <option value="published">Published</option>
+          <option value="rejected">Rejected</option>
+          <option value="">All Statuses</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table" aria-label="Moderation Queue">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Owner</th>
+            <th>Type / Price</th>
+            <th>Location</th>
+            <th>Photos</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="moderation-tbody">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/moderation.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rental Portal - Discover Verified Properties</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%); color: #ffffff; padding: 4rem 0 3.5rem; text-align: center;">
+    <div class="container" style="max-width: 800px;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2;">Find Verified Rentals & Real Estate</h1>
+      <p style="font-size: 1.15rem; color: #cbd5e1; margin-bottom: 2rem;">Browse curated apartments, family villas, studios, and commercial spaces with direct owner inquiries.</p>
+
+      <!-- Quick Search Bar -->
+      <form id="hero-search-form" style="display: flex; gap: 0.5rem; background: #ffffff; padding: 0.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); max-width: 650px; margin: 0 auto; flex-wrap: wrap;">
+        <input type="text" id="quick-query" class="form-control" placeholder="City, neighborhood, or keyword (e.g. Seattle)" style="flex: 1; min-width: 200px; border: none;" aria-label="Search properties">
+        <select id="quick-purpose" class="form-control" style="width: auto; border: none; background-color: #f8fafc;" aria-label="Listing purpose">
+          <option value="">All</option>
+          <option value="rent">Rent</option>
+          <option value="sale">Buy</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <main class="container" style="padding-top: 3rem;">
+    <!-- Featured Listings Section -->
+    <section style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+        <div>
+          <h2 style="font-size: 1.75rem; color: var(--color-primary);">Featured Properties</h2>
+          <p style="color: var(--color-text-muted);">Top premium verified residences</p>
+        </div>
+        <a href="/pages/search.html" style="font-weight: 600;">View all &rarr;</a>
+      </div>
+      <div id="featured-grid" class="property-grid" aria-live="polite">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- Recent Listings Section -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+        <div>
+          <h2 style="font-size: 1.75rem; color: var(--color-primary);">Recently Added</h2>
+          <p style="color: var(--color-text-muted);">Fresh listings posted to the marketplace</p>
+        </div>
+        <a href="/pages/search.html" style="font-weight: 600;">Explore all listings &rarr;</a>
+      </div>
+      <div id="recent-grid" class="property-grid" aria-live="polite">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/home.js"></script>
+</body>
+</html>

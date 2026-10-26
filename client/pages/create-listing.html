@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Property Listing - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Post New Property Listing</h1>
+      <p>Fill out the details below. Listings are created as drafts; upload photos and publish when ready.</p>
+    </div>
+
+    <div class="form-card" style="max-width: 850px; margin: 0 auto;">
+      <div id="alert-box" role="alert" style="display: none; margin-bottom: 1.5rem;" class="form-error"></div>
+
+      <form id="create-property-form" novalidate>
+        <!-- Basic Info -->
+        <h2 style="font-size: 1.25rem; color: var(--color-primary); margin-bottom: 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">Basic Information</h2>
+
+        <div class="form-group">
+          <label for="title">Listing Title *</label>
+          <input type="text" id="title" class="form-control" required minlength="5" maxlength="120" placeholder="e.g. Sunny 2BHK Apartment in Downtown">
+          <p class="form-help">Between 5 and 120 characters.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="propertyType">Property Type *</label>
+            <select id="propertyType" class="form-control" required>
+              <option value="apartment">Apartment</option>
+              <option value="house">House</option>
+              <option value="villa">Villa</option>
+              <option value="studio">Studio</option>
+              <option value="pg">PG / Co-Living</option>
+              <option value="commercial">Commercial</option>
+              <option value="plot">Plot</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="purpose">Listing Purpose *</label>
+            <select id="purpose" class="form-control" required>
+              <option value="rent">Rent (Monthly Rent)</option>
+              <option value="sale">Sale (Outright Purchase)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="furnishing">Furnishing Status</label>
+            <select id="furnishing" class="form-control">
+              <option value="unfurnished">Unfurnished</option>
+              <option value="semi_furnished">Semi-Furnished</option>
+              <option value="fully_furnished">Fully Furnished</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Pricing & Area -->
+        <h2 style="font-size: 1.25rem; color: var(--color-primary); margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">Pricing & Dimensions</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="price">Price ($) *</label>
+            <input type="number" id="price" class="form-control" required min="0" placeholder="3200">
+          </div>
+
+          <div class="form-group" id="deposit-group">
+            <label for="deposit">Security Deposit ($)</label>
+            <input type="number" id="deposit" class="form-control" min="0" placeholder="6400">
+          </div>
+
+          <div class="form-group">
+            <label for="area">Carpet Area *</label>
+            <input type="number" id="area" class="form-control" required min="1" placeholder="1200">
+          </div>
+
+          <div class="form-group">
+            <label for="areaUnit">Area Unit</label>
+            <select id="areaUnit" class="form-control">
+              <option value="sqft">Square Feet (sqft)</option>
+              <option value="sqm">Square Meters (sqm)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;" id="rooms-row">
+          <div class="form-group">
+            <label for="bedrooms">Bedrooms</label>
+            <input type="number" id="bedrooms" class="form-control" min="0" value="1">
+          </div>
+
+          <div class="form-group">
+            <label for="bathrooms">Bathrooms</label>
+            <input type="number" id="bathrooms" class="form-control" min="0" value="1">
+          </div>
+        </div>
+
+        <!-- Location -->
+        <h2 style="font-size: 1.25rem; color: var(--color-primary); margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">Property Location</h2>
+
+        <div class="form-group">
+          <label for="address">Street Address *</label>
+          <input type="text" id="address" class="form-control" required placeholder="123 Ocean Avenue, Apt 4B">
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="locality">Locality / Neighborhood *</label>
+            <input type="text" id="locality" class="form-control" required placeholder="Downtown">
+          </div>
+
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" class="form-control" required placeholder="Seattle">
+          </div>
+
+          <div class="form-group">
+            <label for="state">State / Province *</label>
+            <input type="text" id="state" class="form-control" required placeholder="WA">
+          </div>
+
+          <div class="form-group">
+            <label for="postalCode">Postal Code *</label>
+            <input type="text" id="postalCode" class="form-control" required placeholder="98101">
+          </div>
+        </div>
+
+        <!-- Description -->
+        <h2 style="font-size: 1.25rem; color: var(--color-primary); margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">Detailed Description</h2>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" class="form-control" rows="5" required minlength="20" maxlength="3000" placeholder="Highlight key features, appliances, proximity to transportation, and building rules..."></textarea>
+          <p class="form-help">Minimum 20 characters.</p>
+        </div>
+
+        <!-- Amenities -->
+        <h2 style="font-size: 1.25rem; color: var(--color-primary); margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">Amenities & Facilities</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.5rem; margin-bottom: 1.5rem;">
+          <label><input type="checkbox" name="amenities" value="parking"> Dedicated Parking</label>
+          <label><input type="checkbox" name="amenities" value="gym"> Fitness Gym</label>
+          <label><input type="checkbox" name="amenities" value="swimming_pool"> Swimming Pool</label>
+          <label><input type="checkbox" name="amenities" value="elevator"> Elevator</label>
+          <label><input type="checkbox" name="amenities" value="security"> 24/7 Security</label>
+          <label><input type="checkbox" name="amenities" value="power_backup"> Power Backup</label>
+          <label><input type="checkbox" name="amenities" value="wifi"> High-Speed Wi-Fi</label>
+          <label><input type="checkbox" name="amenities" value="air_conditioning"> Air Conditioning</label>
+          <label><input type="checkbox" name="amenities" value="balcony"> Private Balcony</label>
+          <label><input type="checkbox" name="amenities" value="garden"> Garden / Patio</label>
+          <label><input type="checkbox" name="amenities" value="clubhouse"> Clubhouse</label>
+          <label><input type="checkbox" name="amenities" value="cctv"> CCTV Surveillance</label>
+        </div>
+
+        <!-- Upload Photos -->
+        <h2 style="font-size: 1.25rem; color: var(--color-primary); margin: 1.5rem 0 1rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.5rem;">Photos (Upload up to 10 images)</h2>
+
+        <div class="form-group">
+          <label for="property-images">Select Image Files (JPEG, PNG, WebP only, max 5 MB each)</label>
+          <input type="file" id="property-images" class="form-control" multiple accept="image/jpeg,image/png,image/webp">
+          <p class="form-help">At least one photo is required before a listing can be published.</p>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+          <a href="/pages/my-listings.html" class="btn btn-secondary">Cancel</a>
+          <button type="submit" id="submit-btn" class="btn btn-primary">Create Listing & Save Draft</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/create-listing.js"></script>
+</body>
+</html>

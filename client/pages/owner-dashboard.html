@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Dashboard - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1>Owner & Agent Dashboard</h1>
+        <p>Manage real estate listings, client inquiries, and performance metrics.</p>
+      </div>
+      <div>
+        <a href="/pages/create-listing.html" class="btn btn-primary">+ Post New Listing</a>
+      </div>
+    </div>
+
+    <!-- Quick Stats Cards -->
+    <div id="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+      <!-- Loaded dynamically -->
+    </div>
+
+    <!-- Quick Actions -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+      <div class="form-card" style="margin: 0; max-width: 100%;">
+        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">My Properties</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">View, edit, publish, or mark your listings as rented/sold.</p>
+        <a href="/pages/my-listings.html" class="btn btn-secondary btn-sm">Go to My Listings &rarr;</a>
+      </div>
+
+      <div class="form-card" style="margin: 0; max-width: 100%;">
+        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Inquiries & Tours</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Review questions and accept or schedule viewing tour appointments.</p>
+        <a href="/pages/inquiry-management.html" class="btn btn-secondary btn-sm">Manage Inquiries &rarr;</a>
+      </div>
+
+      <div class="form-card" style="margin: 0; max-width: 100%;">
+        <h3 style="color: var(--color-primary); margin-bottom: 0.5rem;">Listing Trust & Reports</h3>
+        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">Review user-submitted reports and provide official responses.</p>
+        <a href="/pages/reports.html" class="btn btn-secondary btn-sm">View Listing Reports &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/owner-dashboard.js"></script>
+</body>
+</html>

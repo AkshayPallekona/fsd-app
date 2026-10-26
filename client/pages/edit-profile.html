@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Edit Profile & Settings</h1>
+      <p>Update your personal information and password.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+      <!-- Profile Form -->
+      <div class="form-card" style="margin: 0; max-width: 100%;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary);">Personal Details</h2>
+        <div id="profile-alert" role="alert" style="display: none; margin-bottom: 1rem;" class="form-error"></div>
+
+        <form id="profile-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" required minlength="2" maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 000-0000">
+          </div>
+
+          <button type="submit" id="save-profile-btn" class="btn btn-primary">Save Profile Changes</button>
+        </form>
+      </div>
+
+      <!-- Change Password Form -->
+      <div class="form-card" style="margin: 0; max-width: 100%;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary);">Change Password</h2>
+        <div id="password-alert" role="alert" style="display: none; margin-bottom: 1rem;" class="form-error"></div>
+
+        <form id="password-form">
+          <div class="form-group">
+            <label for="current-password">Current Password</label>
+            <input type="password" id="current-password" class="form-control" required autocomplete="current-password">
+          </div>
+
+          <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" class="form-control" required minlength="8" autocomplete="new-password">
+            <p class="form-help">Must be ≥ 8 characters with at least one uppercase letter, one lowercase letter, and one number.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-new-password">Confirm New Password</label>
+            <input type="password" id="confirm-new-password" class="form-control" required minlength="8" autocomplete="new-password">
+          </div>
+
+          <button type="submit" id="change-password-btn" class="btn btn-secondary">Update Password</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/edit-profile.js"></script>
+</body>
+</html>

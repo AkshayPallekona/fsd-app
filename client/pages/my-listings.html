@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Real Estate Listings - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="page-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1>My Property Listings</h1>
+        <p>Manage your drafts, published inventory, view stats, and lifecycle status.</p>
+      </div>
+      <div>
+        <a href="/pages/create-listing.html" class="btn btn-primary">+ Post New Listing</a>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table" aria-label="My Properties List">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type / Purpose</th>
+            <th>Price</th>
+            <th>Photos</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="listings-tbody">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/my-listings.js"></script>
+</body>
+</html>

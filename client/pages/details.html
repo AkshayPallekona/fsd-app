@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 992px) {
+      .details-grid {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+    .gallery-main {
+      width: 100%;
+      height: 420px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #e2e8f0;
+      margin-bottom: 1rem;
+    }
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-thumbs {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .thumb-btn {
+      flex: 0 0 90px;
+      height: 65px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid transparent;
+      padding: 0;
+      cursor: pointer;
+      background: #e2e8f0;
+    }
+    .thumb-btn.active {
+      border-color: var(--color-accent);
+    }
+    .thumb-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .amenities-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div id="details-container" style="min-height: 400px; padding: 2rem 0;">
+      <!-- Populated dynamically by details.js -->
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/details.js"></script>
+</body>
+</html>

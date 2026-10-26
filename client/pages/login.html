@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Rental Portal</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+
+  <main class="container">
+    <div class="form-card">
+      <h1 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--color-primary);">Sign In</h1>
+      <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Access your inquiries, saved properties, and listings.</p>
+
+      <div id="alert-box" role="alert" style="display: none; margin-bottom: 1rem;" class="form-error"></div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" required autocomplete="email" placeholder="john@example.com">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label for="password" style="margin-bottom: 0;">Password</label>
+            <a href="/pages/forgot-password.html" style="font-size: 0.85rem;">Forgot password?</a>
+          </div>
+          <input type="password" id="password" class="form-control" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Sign In</button>
+      </form>
+
+      <p style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: var(--color-text-muted);">
+        Don't have an account? <a href="/pages/register.html">Sign up</a>
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script type="module" src="/assets/js/layout.js"></script>
+  <script type="module" src="/pages/login.js"></script>
+</body>
+</html>
