@@ -146,10 +146,10 @@ export function confirmDialog(message, title = 'Confirm Action') {
 }
 
 export function formatCurrency(amount, purpose = 'rent') {
-  if (amount === null || amount === undefined) return '$0';
-  const formatted = new Intl.NumberFormat('en-US', {
+  if (amount === null || amount === undefined) return '₹0';
+  const formatted = new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'INR',
     maximumFractionDigits: 0
   }).format(amount);
   return purpose === 'rent' ? `${formatted}/mo` : formatted;

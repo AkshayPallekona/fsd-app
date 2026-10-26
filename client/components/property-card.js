@@ -13,13 +13,17 @@ export function createPropertyCard(property) {
   media.className = 'card-media';
 
   const img = document.createElement('img');
+  const fallbackSvg = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20300%22%3E%3Crect%20width%3D%22400%22%20height%3D%22300%22%20fill%3D%22%231e293b%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20fill%3D%22%2394a3b8%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-size%3D%2220%22%20font-family%3Asans-serif%3EProperty%20Photo%3C%2Ftext%3E%3C%2Fsvg%3E';
   const imageUrl = property.images && property.images.length > 0
     ? property.images[0].url
-    : 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22400%22%20height%3D%22300%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%20300%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18e%20text%20%7B%20fill%3A%2394a3b8%3Bfont-weight%3Abold%3Bfont-family%3Amonospace%3Bfont-size%3A20pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18e%22%3E%3Crect%20width%3D%22400%22%20height%3D%22300%22%20fill%3D%22%23cbd5e1%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22135%22%20y%3D%22157%22%3ENo%20Image%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E';
+    : fallbackSvg;
 
   img.src = imageUrl;
   img.alt = property.title || 'Property image';
   img.loading = 'lazy';
+  img.onerror = () => {
+    img.src = fallbackSvg;
+  };
   media.appendChild(img);
 
   // Badges

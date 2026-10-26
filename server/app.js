@@ -29,7 +29,15 @@ app.use(
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"], // Disallows inline scripts; all JS in external files
         styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", 'data:', 'https://res.cloudinary.com', 'blob:'],
+        imgSrc: [
+          "'self'",
+          'data:',
+          'https://res.cloudinary.com',
+          'https://images.unsplash.com',
+          'https://*.unsplash.com',
+          'https://plus.unsplash.com',
+          'blob:'
+        ],
         connectSrc: ["'self'"],
         fontSrc: ["'self'"],
         objectSrc: ["'none'"]

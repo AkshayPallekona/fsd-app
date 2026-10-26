@@ -100,9 +100,12 @@ function renderProperty(prop, user, similarListings) {
 
   const mainImg = document.createElement('img');
   mainImg.id = 'main-property-image';
-  const defaultImage = prop.images && prop.images.length > 0 ? prop.images[0].url : 'data:image/svg+xml,%3Csvg%20width%3D%22600%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20fill%3D%22%23cbd5e1%22%20width%3D%22600%22%20height%3D%22400%22%2F%3E%3Ctext%20fill%3D%22%2364748b%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3Asans-serif%3ENo%20Image%3C%2Ftext%3E%3C%2Fsvg%3E';
+  const defaultImage = prop.images && prop.images.length > 0 ? prop.images[0].url : 'data:image/svg+xml,%3Csvg%20width%3D%22600%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20fill%3D%22%231e293b%22%20width%3D%22600%22%20height%3D%22400%22%2F%3E%3Ctext%20fill%3D%22%2394a3b8%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3Asans-serif%3EProperty%20Photo%3C%2Ftext%3E%3C%2Fsvg%3E';
   mainImg.src = defaultImage;
   mainImg.alt = prop.title;
+  mainImg.onerror = () => {
+    mainImg.src = 'data:image/svg+xml,%3Csvg%20width%3D%22600%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20fill%3D%22%231e293b%22%20width%3D%22600%22%20height%3D%22400%22%2F%3E%3Ctext%20fill%3D%22%2394a3b8%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20font-family%3Asans-serif%3EProperty%20Photo%3C%2Ftext%3E%3C%2Fsvg%3E';
+  };
   mainPhotoBox.appendChild(mainImg);
   gallery.appendChild(mainPhotoBox);
 
@@ -118,6 +121,9 @@ function renderProperty(prop, user, similarListings) {
       const tImg = document.createElement('img');
       tImg.src = imgObj.url;
       tImg.alt = `Photo ${idx + 1}`;
+      tImg.onerror = () => {
+        tImg.src = 'data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20fill%3D%22%231e293b%22%20width%3D%22100%22%20height%3D%2280%22%2F%3E%3C%2Fsvg%3E';
+      };
       tb.appendChild(tImg);
       tb.addEventListener('click', () => {
         mainImg.src = imgObj.url;
@@ -142,7 +148,7 @@ function renderProperty(prop, user, similarListings) {
         <span style="font-size: 0.8rem; color: var(--color-text-muted);">PRICE</span>
         <p style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary); margin: 0;">${formatCurrency(prop.price, prop.purpose)}</p>
       </div>
-      ${prop.deposit ? `<div><span style="font-size: 0.8rem; color: var(--color-text-muted);">SECURITY DEPOSIT</span><p style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); margin: 0;">$${prop.deposit.toLocaleString()}</p></div>` : ''}
+      ${prop.deposit ? `<div><span style="font-size: 0.8rem; color: var(--color-text-muted);">SECURITY DEPOSIT</span><p style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); margin: 0;">₹${prop.deposit.toLocaleString('en-IN')}</p></div>` : ''}
       <div>
         <span style="font-size: 0.8rem; color: var(--color-text-muted);">BEDROOMS</span>
         <p style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); margin: 0;">${prop.bedrooms || 0}</p>
