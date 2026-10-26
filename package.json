@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "dev": "nodemon server/server.js",
+    "dev:memory": "node scripts/startMemoryDb.js",
     "seed": "node scripts/seed.js",
     "test": "jest --runInBand --detectOpenHandles --forceExit",
     "lint": "eslint ."
